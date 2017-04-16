@@ -20,3 +20,9 @@ create user DBAuser
 identified by dba123
 default tablespace vehicles_fleet
 quota unlimited on vehicles_fleet;
+
+# 5 - Creamos el role y le asignamos los permisos al usuruio DBAuser
+
+Create role conectarse;
+grant connect, resource to conectarse;
+grant conectarse to DBAuser;

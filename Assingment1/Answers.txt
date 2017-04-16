@@ -52,3 +52,8 @@ SESSIONS_PER_USER          2
 PASSWORD_LIFE_TIME         100
 IDLE_TIME                  30
 FAILED_LOGIN_ATTEMPTS      1;
+
+# 7 - Creamos el role without_privileges y le quitamos todos los privilegios
+
+CREATE ROLE without_privileges;
+REVOKE ALL PRIVILEGES FROM without_privileges;

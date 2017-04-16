@@ -26,3 +26,29 @@ quota unlimited on vehicles_fleet;
 Create role conectarse;
 grant connect, resource to conectarse;
 grant conectarse to DBAuser;
+
+# 6 - Creamos los diferentes perfiles con sus respectivos parametros
+
+CREATE PROFILE manager_profile LIMIT 
+SESSIONS_PER_USER          1
+PASSWORD_LIFE_TIME         40
+IDLE_TIME                  15
+FAILED_LOGIN_ATTEMPTS      4;
+
+CREATE PROFILE finance_profile LIMIT 
+SESSIONS_PER_USER          1
+PASSWORD_LIFE_TIME         15
+IDLE_TIME                  5
+FAILED_LOGIN_ATTEMPTS      2;
+
+CREATE PROFILE service_profile LIMIT 
+SESSIONS_PER_USER          1
+PASSWORD_LIFE_TIME         20
+IDLE_TIME                  10
+FAILED_LOGIN_ATTEMPTS      3;
+
+CREATE PROFILE development LIMIT 
+SESSIONS_PER_USER          2
+PASSWORD_LIFE_TIME         100
+IDLE_TIME                  30
+FAILED_LOGIN_ATTEMPTS      1;

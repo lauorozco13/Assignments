@@ -1,8 +1,8 @@
 # 1 - Creamos 2 tablespaces vehicles_fleet con 2 datafiles y 1 GB de tamano y el otro con 500 MB y un datafile.
 
 create tablespace vehicles_fleet datafile
-'datafile.dbf' size 500M,
-'datafile2.dbf' size 500M;
+'datafile.dbf' size 512M,
+'datafile2.dbf' size 512M;
 
 create TABLESPACE test_purposes datafile
 'datafile1.dbf' size 500M;

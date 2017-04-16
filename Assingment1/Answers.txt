@@ -13,3 +13,10 @@ CREATE UNDO TABLESPACE UNDOTBS DATAFILE 'undotbs.dbf' SIZE 5M;
 
 # 3 - Se estabablece la UNDOTBS en el sistema
 ALTER SYSTEM SET UNDO_TABLESPACE = UNDOTBS;
+
+# 4 - Se crea usuario administrador de la tabla vehicles_fleet
+
+create user DBAuser
+identified by dba123
+default tablespace vehicles_fleet
+quota unlimited on vehicles_fleet;

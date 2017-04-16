@@ -7,6 +7,9 @@ create tablespace vehicles_fleet datafile
 create TABLESPACE test_purposes datafile
 'datafile1.dbf' size 500M;
 
-# 2 - Creacion de la undo tablespace con 5 mb de tamño
+# 2 - Creacion de la undo tablespace con 5 mb de tamano
 
 CREATE UNDO TABLESPACE UNDOTBS DATAFILE 'undotbs.dbf' SIZE 5M;
+
+# 3 - Se estabablece la UNDOTBS en el sistema
+ALTER SYSTEM SET UNDO_TABLESPACE = UNDOTBS;

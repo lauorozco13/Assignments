@@ -57,3 +57,46 @@ FAILED_LOGIN_ATTEMPTS      1;
 
 CREATE ROLE without_privileges;
 REVOKE ALL PRIVILEGES FROM without_privileges;
+
+# 8 - Creamos los usuarios con los respectivos roles y perfiles
+
+CREATE USER UserA
+IDENTIFIED BY UserA123
+DEFAULT TABLESPACE vehicles_fleet
+PROFILE manager_profile;
+
+grant connect to UserA;
+grant without_privileges to UserA;
+
+CREATE USER UserB
+IDENTIFIED BY UserB123
+DEFAULT TABLESPACE vehicles_fleet
+PROFILE finance_profile;
+
+grant connect to UserB;
+grant without_privileges to UserB;
+
+CREATE USER UserC
+IDENTIFIED BY UserC123
+DEFAULT TABLESPACE vehicles_fleet
+PROFILE service_profile;
+
+grant connect to UserC;
+grant without_privileges to UserC;
+
+CREATE USER UserD
+IDENTIFIED BY UserD123
+DEFAULT TABLESPACE vehicles_fleet
+PROFILE development;
+
+grant connect to UserD;
+
+# 9 - Bloqueamos los usuarios UserA, UserB y UserC
+
+ALTER USER UserA ACCOUNT LOCK;
+ALTER USER UserB ACCOUNT LOCK;
+ALTER USER UserC ACCOUNT LOCK;
+
+# 10 - Borramos el tablespace test_purposes 
+
+DROP TABLESPACE test_purposes INCLUDING CONTENTS AND DATAFILES;
